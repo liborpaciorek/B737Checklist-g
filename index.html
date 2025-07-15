@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boeing 737-800 Interactive Checklist</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            color: #005696;
+            border-bottom: 2px solid #005696;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #0073CF;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr {
+            background-color: #ffffff;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            position: relative;
+            top: 2px;
+        }
+        .reset-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .reset-button:hover {
+            background-color: #c9302c;
+        }
+        code {
+            background-color: #e3e3e3;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+    <script>
+        function resetCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Boeing 737-800 Interactive Checklist (APU Only)</h1>
+    <p>A detailed guide for a full flight from a cold & dark state to shutdown, including FMC steps and interactive checklists. Intended for flight simulation use only.</p>
+    <button onclick="resetCheckboxes()" class="reset-button">Reset All Checks</button>
+
+    <h2>Phase 1: Pre-Flight & Cockpit Preparation</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Detailed Pilot Actions (Switches, Buttons & FMC Steps)</th>
+                <th>Avionics & Autopilot Display</th>
+                <th>ATC Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><input type="checkbox"> Set <strong>BATTERY</strong> master switch to ON and close guard.</li>
+                        <li><input type="checkbox"> Set <strong>STANDBY POWER</strong> switch to AUTO.</li>
+                        <li><input type="checkbox"> On Fuel Panel, set left <strong>AFT FUEL PUMP</strong> to ON.</li>
+                        <li><input type="checkbox"> On Electrical Panel, hold <strong>APU START</strong> switch to START (2 sec), then release to ON.</li>
+                        <li><input type="checkbox"> Set both <strong>APU GENERATOR</strong> switches to ON after "APU GEN OFF BUS" light illuminates.</li>
+                        <li><input type="checkbox"> Set both <strong>IRS Mode Selectors</strong> from OFF to NAV.</li>
+                        <li><input type="checkbox"> Set both <strong>ELECTRIC HYDRAULIC PUMP</strong> switches to ON.</li>
+                        <li><input type="checkbox"> Set all four <strong>WINDOW HEAT</strong> switches to ON.</li>
+                        <li><input type="checkbox"> Set <strong>APU BLEED</strong> air switch to ON.</li>
+                        <li><input type="checkbox"> Set both <strong>PACK</strong> switches to AUTO.</li>
+                        <li><input type="checkbox"> Set <strong>ISOLATION VALVE</strong> switch to AUTO.</li>
+                        <li><input type="checkbox"> Set <strong>LANDING ALTITUDE</strong> on Pressurization Panel.</li>
+                        <li><input type="checkbox"> On Glareshield, turn both <strong>FLIGHT DIRECTOR (F/D)</strong> switches ON.</li>
+                        <li><input type="checkbox"> On MCP, set initial cleared altitude in <strong>ALTITUDE</strong> window.</li>
+                        <li><input type="checkbox"> On CDU, access <strong>FMC</strong> and press <code>IDENT</code> to verify aircraft data.</li>
+                        <li><input type="checkbox"> On CDU, press <code>POS INIT</code>, confirm GPS position and set initial position.</li>
+                        <li><input type="checkbox"> On CDU, press <code>RTE</code>, enter Origin, Destination, and route waypoints. Activate and Execute.</li>
+                        <li><input type="checkbox"> On CDU, press <code>PERF INIT</code>, enter Cost Index, Cruise Alt, Reserves, and ZFW. Execute.</li>
+                        <li><input type="checkbox"> On CDU, press <code>N1 LIMIT</code>, select takeoff thrust rating (e.g., TO-1, TO-2) or leave full.</li>
+                        <li><input type="checkbox"> On CDU, press <code>TAKEOFF</code>, enter Flap setting, verify V-speeds, and input Trim.</li>
+                        <li><input type="checkbox"> On radio panel, tune to Clearance Delivery frequency.</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>Initial:</strong> Standby instruments and FMC screen are on.<br><br>
+                    <strong>After APU Power:</strong> All DUs illuminate. EICAS indicates APU GENs are powering the aircraft. ND shows "IRS ALIGNING".<br><br>
+                    <strong>After FMC/MCP Setup:</strong> PFD shows green "FD" and command bars. V-speeds appear on speed tape. ND shows magenta flight plan route.
+                </td>
+                <td>
+                    <strong>Pilot:</strong> "Clearance Delivery, [Aircraft Callsign], stand [Stand Number], request IFR clearance to [Destination Airport] with information [ATIS Code]." <br><br>
+                    <strong>ATC:</strong> "[Callsign], cleared to [Destination] via [Route/SID], climb and maintain [Initial Altitude], squawk [Transponder Code]." <br><br>
+                    <strong>Pilot (Read back):</strong> "Cleared to [Destination] via [SID], climb [Altitude], squawk [Code], [Callsign]."
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Phase 2: Pushback & Engine Start</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Detailed Pilot Actions (Switches, Buttons & FMC Steps)</th>
+                <th>Avionics & Autopilot Display</th>
+                <th>ATC Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><input type="checkbox"> Set <strong>ANTI-COLLISION (BEACON)</strong> light switch to ON.</li>
+                        <li><input type="checkbox"> On MCP, press <strong>LNAV</strong> and <strong>VNAV</strong> buttons.</li>
+                        <li><input type="checkbox"> Set both <strong>PACK</strong> switches to OFF.</li>
+                        <li><input type="checkbox"> Turn <strong>ENGINE 2 START SWITCH</strong> to GRD.</li>
+                        <li><input type="checkbox"> At ~25% N2, move <strong>ENGINE 2 START LEVER</strong> to IDLE.</li>
+                        <li><input type="checkbox"> After Engine 2 stabilizes, turn <strong>ENGINE 1 START SWITCH</strong> to GRD.</li>
+                        <li><input type="checkbox"> At ~25% N2, move <strong>ENGINE 1 START LEVER</strong> to IDLE.</li>
+                        <li><input type="checkbox"> Set both <strong>ENGINE GENERATOR</strong> switches to ON.</li>
+                        <li><input type="checkbox"> Set both <strong>PACK</strong> switches to AUTO.</li>
+                        <li><input type="checkbox"> Set <strong>APU BLEED</strong> switch to OFF.</li>
+                        <li><input type="checkbox"> Set <strong>APU</strong> switch to OFF.</li>
+                        <li><input type="checkbox"> Set <strong>PROBE HEAT</strong> switches to ON.</li>
+                        <li><input type="checkbox"> Set <strong>ENGINE START SWITCHES</strong> back to AUTO.</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>FMA:</strong> LNAV and VNAV appear in white (armed).<br><br>
+                    <strong>EICAS:</strong> "START VALVE OPEN" is shown during start. N2, EGT, FF, N1, and Oil Pressure rise sequentially. After start, EICAS shows engine generators are powering the buses.
+                </td>
+                <td>
+                    <strong>Pilot:</strong> "Ground, [Callsign], at stand [Number], request pushback and engine start." <br><br>
+                    <strong>ATC:</strong> "[Callsign], pushback and start approved, face [Direction], expect runway [Runway]." <br><br>
+                    <strong>Pilot:</strong> "Pushback start approved, face [Direction], [Callsign]."
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Phase 3: Taxi</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Detailed Pilot Actions (Switches, Buttons & FMC Steps)</th>
+                <th>Avionics & Autopilot Display</th>
+                <th>ATC Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><input type="checkbox"> Move <strong>FLAP LEVER</strong> to takeoff setting (e.g., 5).</li>
+                        <li><input type="checkbox"> Check flight controls for full and free movement.</li>
+                        <li><input type="checkbox"> Set <strong>TAXI LIGHT</strong> switch to ON.</li>
+                        <li><input type="checkbox"> Set <strong>AUTOBRAKE</strong> selector to RTO (Rejected Takeoff).</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>PFD/EICAS:</strong> Flap indicator moves to the selected setting.<br><br>
+                    <strong>EICAS:</strong> "AUTOBRAKE RTO" is displayed.
+                </td>
+                <td>
+                    <strong>Pilot:</strong> "Ground, [Callsign], request taxi." <br><br>
+                    <strong>ATC:</strong> "[Callsign], taxi to runway [Runway] via taxiway [Taxiway Route]." <br><br>
+                    <strong>Pilot (Read back):</strong> "Taxi to runway [Runway] via [Route], [Callsign]."
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Phase 4: Takeoff and Climb</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Detailed Pilot Actions (Switches, Buttons & FMC Steps)</th>
+                <th>Avionics & Autopilot Display</th>
+                <th>ATC Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><input type="checkbox"> Set <strong>LANDING LIGHTS</strong> switches to ON.</li>
+                        <li><input type="checkbox"> Set <strong>STROBE LIGHT</strong> switch to ON.</li>
+                        <li><input type="checkbox"> On MCP, set the <strong>A/T ARM</strong> (Autothrottle) switch to ARM.</li>
+                        <li><input type="checkbox"> Advance thrust levers to ~40% N1.</li>
+                        <li><input type="checkbox"> Press the <strong>TO/GA (Takeoff/Go-Around)</strong> button on the thrust levers.</li>
+                        <li><input type="checkbox"> At "Rotate" call, pull back on control column, following FD bars.</li>
+                        <li><input type="checkbox"> With positive climb rate, move <strong>LANDING GEAR LEVER</strong> UP.</li>
+                        <li><input type="checkbox"> At safe altitude (~1000 ft AGL), press the <strong>CMD A</strong> or <strong>CMD B</strong> button on the MCP.</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>PFD FMA:</strong> "A/T ARM" (white) -> "N1" (green) for thrust, "TO/GA" (green) for pitch. After AP engagement, "CMD" appears in green, and roll/pitch modes become "LNAV" and "VNAV SPD".<br><br>
+                    <strong>EICAS:</strong> Gear indication changes from green to in-transit, then disappears.
+                </td>
+                <td>
+                    <strong>Pilot:</strong> "Tower, [Callsign], ready for departure runway [Runway]." <br><br>
+                    <strong>ATC:</strong> "[Callsign], wind [Direction/Speed], runway [Runway], cleared for takeoff." <br><br>
+                    <strong>Pilot:</strong> "Cleared for takeoff, runway [Runway], [Callsign]." <br><br>
+                    <strong>ATC:</strong> "[Callsign], contact Departure on [Frequency]." <br><br>
+                    <strong>Pilot:</strong> "Contacting Departure, [Callsign]."
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+     <h2>Phase 5: Cruise & Descent</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Detailed Pilot Actions (Switches, Buttons & FMC Steps)</th>
+                <th>Avionics & Autopilot Display</th>
+                <th>ATC Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><input type="checkbox"> Monitor as Autopilot levels off at cruise altitude.</li>
+                        <li><input type="checkbox"> Move <strong>LANDING GEAR LEVER</strong> to the OFF position.</li>
+                        <li><input type="checkbox"> Turn off <strong>TAXI</strong> and <strong>TURNOFF</strong> lights.</li>
+                        <li><input type="checkbox"> On MCP, set new lower altitude from ATC for descent.</li>
+                        <li><input type="checkbox"> On NAV radio panel, tune the <strong>ILS FREQUENCY</strong> for the approach runway.</li>
+                        <li><input type="checkbox"> Press the <strong>APP (Approach)</strong> button on the MCP.</li>
+                        <li><input type="checkbox"> Move <strong>FLAP LEVER</strong> and <strong>LANDING GEAR LEVER</strong> down on schedule.</li>
+                    </ul>
+                </td>
+                <td>
+                     <strong>PFD FMA (Cruise):</strong> Pitch mode becomes "VNAV PTH" or "ALT".<br><br>
+                    <strong>PFD FMA (Descent/Approach):</strong> "VNAV PTH" manages descent. For an ILS, "VOR/LOC" and "G/S" appear in white (armed), then turn green (captured).<br><br>
+                    <strong>EICAS:</strong> Three green lights confirm gear is down and locked.
+                </td>
+                <td>
+                    <strong>ATC:</strong> "[Callsign], contact [Center/Control] on [Frequency]."<br><br>
+                    <strong>Pilot:</strong> "[Center/Control], [Callsign], flight level [Cruise Level]."<br><br>
+                    <strong>ATC:</strong> "[Callsign], descend via the [STAR Name] arrival."<br><br>
+                    <strong>Pilot:</strong> "Descend via the [STAR Name], [Callsign]."<br><br>
+                    <strong>ATC:</strong> "[Callsign], cleared ILS runway [Runway] approach."<br><br>
+                    <strong>Pilot:</strong> "Cleared ILS runway [Runway] approach, [Callsign]."
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Phase 6: Landing and Shutdown</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Detailed Pilot Actions (Switches, Buttons & FMC Steps)</th>
+                <th>Avionics & Autopilot Display</th>
+                <th>ATC Communication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li><input type="checkbox"> At decision height, press <strong>AUTOPILOT DISCONNECT SWITCH</strong> on yoke.</li>
+                        <li><input type="checkbox"> After touchdown, deploy <strong>SPEEDBRAKE LEVER</strong>.</li>
+                        <li><input type="checkbox"> Engage <strong>REVERSE THRUST LEVERS</strong> as needed.</li>
+                        <li><input type="checkbox"> After clearing the runway, set <strong>STROBE LIGHT</strong> to STEADY.</li>
+                        <li><input type="checkbox"> Set <strong>LANDING LIGHTS</strong> and <strong>PROBE HEAT</strong> to OFF.</li>
+                        <li><input type="checkbox"> Move <strong>FLAP LEVER</strong> to UP.</li>
+                        <li><input type="checkbox"> Set the <strong>APU START</strong> switch to ON.</li>
+                        <li><input type="checkbox"> At the gate, set <strong>PARKING BRAKE</strong>.</li>
+                        <li><input type="checkbox"> Set <strong>APU GENERATOR</strong> switches to ON.</li>
+                        <li><input type="checkbox"> Move both <strong>ENGINE START LEVERS</strong> to CUTOFF.</li>
+                        <li><input type="checkbox"> Set <strong>ANTI-COLLISION (BEACON)</strong> light OFF.</li>
+                        <li><input type="checkbox"> Turn off <strong>FUEL PUMPS</strong>, <strong>HYDRAULIC PUMPS</strong>, <strong>PACKS</strong>, <strong>WINDOW HEAT</strong>.</li>
+                        <li><input type="checkbox"> Set <strong>APU</strong> switch to OFF.</li>
+                        <li><input type="checkbox"> Set both <strong>IRS Mode Selectors</strong> to OFF.</li>
+                        <li><input type="checkbox"> Set the <strong>BATTERY</strong> master switch to OFF.</li>
+                    </ul>
+                </td>
+                <td>
+                    <strong>PFD FMA:</strong> "CMD" disappears upon AP disconnect. FD bars remain for guidance.<br><br>
+                    <strong>EICAS:</strong> Shows speedbrake and reverse thrust indications. APU start sequence begins after landing. At shutdown, EICAS shows power transfer to APU, then engine parameters spool down. Finally, all displays go dark.
+                </td>
+                <td>
+                    <strong>ATC:</strong> "[Callsign], wind [Wind], runway [Runway], cleared to land."<br><br>
+                    <strong>Pilot:</strong> "Cleared to land, [Callsign]."<br><br>
+                    <strong>ATC:</strong> "Contact Ground on [Frequency]."<br><br>
+                    <strong>Pilot:</strong> "Ground, [Callsign], clear of runway [Runway] at [Taxiway], taxi to the gate."<br><br>
+                    <strong>ATC:</strong> "[Callsign], taxi to gate [Number] via [Route]."
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
