@@ -1,295 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Boeing 737-800 Full Flight Checklist (APU Only, with ATC, Avionics & FMC)</title>
+<meta charset="UTF-8">
+<title>Boeing 737-800 Full Flight Checklist (APU + ATC + FMC)</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    margin: 20px;
-    background: #f9f9f9;
-    color: #222;
-    max-width: 900px;
-  }
-  h1, h2 {
-    text-align: center;
-    margin-bottom: 0.3em;
-  }
-  .checklist-section {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-  }
-  .checklist-section h2 {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;
-    margin-bottom: 15px;
-    color: #004080;
-  }
-  label {
-    display: block;
-    cursor: pointer;
-    padding-left: 30px;
-    position: relative;
-    margin-bottom: 10px;
-    user-select: none;
-  }
-  label input[type="checkbox"] {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-  /* Checked box highlight */
-  label input[type="checkbox"]:checked + span {
-    text-decoration: line-through;
-    color: #666;
-  }
-  /* Scroll for large lists */
-  .checklist-section .inner-list {
-    max-height: 500px;
-    overflow-y: auto;
-    padding-right: 5px;
-  }
-  /* Responsive */
-  @media (max-width: 600px) {
-    body {
-      margin: 10px;
-      font-size: 14px;
-    }
-    label {
-      padding-left: 25px;
-    }
-    label input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-    }
-  }
+  body { font-family: Arial, sans-serif; background: #e6e9ef; margin: 2em; }
+  h2 { background: #204080; color: #fff; padding: 5px 12px; border-radius: 5px; }
+  h3 { margin-top: 2em; color: #204080; font-size: 1.2em; }
+  ul { list-style: none; padding-left: 0; }
+  li { line-height: 1.7em; margin-bottom: 2px; }
+  label { cursor: pointer; }
+  .section { margin-bottom: 2.5em; }
 </style>
 </head>
 <body>
+<h1>Boeing 737-800 Full Interactive Checklist</h1>
 
-<h1>Boeing 737-800 Full Flight Checklist<br />(APU Only, with ATC, Avionics & Full FMC)</h1>
-
-<!-- SECTION: Exterior Inspection -->
-<div class="checklist-section" id="exterior-inspection">
-  <h2>Exterior Inspection (Brief for Sim)</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Walkaround: check nose & main gear, tires & brakes</span></label>
-    <label><input type="checkbox" /><span>Check fuselage surfaces and windows for damage</span></label>
-    <label><input type="checkbox" /><span>Check flight controls free and correct</span></label>
-    <label><input type="checkbox" /><span>Check static ports & probes clear</span></label>
-    <label><input type="checkbox" /><span>Fuel caps secure</span></label>
-  </div>
+<div class="section">
+<h2>1. Cold & Dark / Initial Power-Up</h2>
+<ul>
+<li><label><input type="checkbox"> Battery Switch ............... ON</label></li>
+<li><label><input type="checkbox"> Standby Power ................. AUTO</label></li>
+<li><label><input type="checkbox"> Electric Hydraulic Pumps ...... OFF</label></li>
+<li><label><input type="checkbox"> Windshield Wipers ............. OFF</label></li>
+<li><label><input type="checkbox"> Landing Gear Lever ............ DOWN</label></li>
+<li><label><input type="checkbox"> Landing Gear Alternate ........ DOWN, GUARD CLOSED</label></li>
+<li><label><input type="checkbox"> Alternate Flaps ................ GUARD CLOSED, OFF</label></li>
+<li><label><input type="checkbox"> Avionics Switches ............. ON</label></li>
+<li><label><input type="checkbox"> IRS switches .................. OFF, then NAV (align IRS)</label></li>
+<li><label><input type="checkbox"> Position/set current time ....... SET IRS/UTC/Pos</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Cockpit Pre-Start -->
-<div class="checklist-section" id="cockpit-prestart">
-  <h2>Cockpit Pre-Start</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Battery switches ON, confirm voltage & amps</span></label>
-    <label><input type="checkbox" /><span>APU master ON</span></label>
-    <label><input type="checkbox" /><span>APU start selector - Start, APU bleed ON after start</span></label>
-    <label><input type="checkbox" /><span>ADIRS switches ALIGN, verify ALIGN status on CDU</span></label>
-    <label><input type="checkbox" /><span>Exterior lights - NAV, Beacon ON</span></label>
-    <label><input type="checkbox" /><span>Pushback & external power on standby</span></label>
-    <label><input type="checkbox" /><span>Parking brake SET</span></label>
-  </div>
+<div class="section">
+<h2>2. APU Start & Power</h2>
+<ul>
+<li><label><input type="checkbox"> APU Fire Switch .............. IN, GUARDED</label></li>
+<li><label><input type="checkbox"> APU Switch .............. START (then ON)</label></li>
+<li><label><input type="checkbox"> Wait for APU GEN AVAIL lights</label></li>
+<li><label><input type="checkbox"> APU GEN switches ............. ON (both)</label></li>
+<li><label><input type="checkbox"> APU BLEED AIR ................. ON</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Avionics Power On & Setup -->
-<div class="checklist-section" id="avionics-setup">
-  <h2>Avionics Power On & Setup</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Standby instruments checked and functional</span></label>
-    <label><input type="checkbox" /><span>IRS status check - confirm alignment in progress</span></label>
-    <label><input type="checkbox" /><span>EFIS control panel - set heading, altitude, baro</span></label>
-    <label><input type="checkbox" /><span>Audio panel check, ATC radio preset frequencies</span></label>
-    <label><input type="checkbox" /><span>Flight Management Computer (FMC) power ON</span></label>
-  </div>
+<div class="section">
+<h2>3. Cockpit Preparation</h2>
+<ul>
+<li><label><input type="checkbox"> Circuit Breakers ................. CHECKED</label></li>
+<li><label><input type="checkbox"> Oxygen Masks .......... CHECKED (Tested & 100%)</label></li>
+<li><label><input type="checkbox"> Flight Deck Door ................. CHECKED/CLOSED</label></li>
+<li><label><input type="checkbox"> Gear Pins/Flags .................... REMOVED/STOWED</label></li>
+<li><label><input type="checkbox"> Alternate Gear Down ........... STOWED, GUARDED</label></li>
+<li><label><input type="checkbox"> EMER EXIT LIGHTS ............. ARM</label></li>
+<li><label><input type="checkbox"> FIRE WARN / OVHT switches ....... TEST</label></li>
+<li><label><input type="checkbox"> GPWS Panel ............................. TEST</label></li>
+<li><label><input type="checkbox"> Master Caution ......................... CHECKED/OFF</label></li>
+</ul>
 </div>
 
-<!-- SECTION: FMC Programming -->
-<div class="checklist-section" id="fmc-programming">
-  <h2>FMC Programming (Full Flight)</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>INIT - Set position (from GPS/IRS), verify</span></label>
-    <label><input type="checkbox" /><span>INIT - Enter flight number and cost index</span></label>
-    <label><input type="checkbox" /><span>INIT - Enter zero fuel weight, fuel, and takeoff gross weight</span></label>
-    <label><input type="checkbox" /><span>INIT - Enter departure and arrival airports</span></label>
-    <label><input type="checkbox" /><span>F-PLAN - Load route from the flight plan or enter manually</span></label>
-    <label><input type="checkbox" /><span>F-PLAN - Verify routing, altitudes, and restrictions</span></label>
-    <label><input type="checkbox" /><span>PERF - Enter V-speeds (V1, Vr, V2) using FMC calculated values</span></label>
-    <label><input type="checkbox" /><span>PERF - Set flaps for takeoff</span></label>
-    <label><input type="checkbox" /><span>RAD NAV - Verify navigation aids (ILS, VOR) frequencies</span></label>
-    <label><input type="checkbox" /><span>PROG - Confirm position and estimated time enroute</span></label>
-  </div>
+<div class="section">
+<h2>4. Avionics Setup</h2>
+<ul>
+<li><label><input type="checkbox"> MCP Panel ......................... SET {HDG, ALT, SPD, CRS}</label></li>
+<li><label><input type="checkbox"> Auto Brake ........................ RTO</label></li>
+<li><label><input type="checkbox"> EFIS BARO / MINS ............... SET</label></li>
+<li><label><input type="checkbox"> Radios (COM/NAV) ............ ON, Frequencies Set</label></li>
+<li><label><input type="checkbox"> Transponder (XPDR) ........... STANDBY, CODE PRESET</label></li>
+<li><label><input type="checkbox"> VHF/HF Audio Panels .......... Set/Crew</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Before Start Engine -->
-<div class="checklist-section" id="before-start-engine">
-  <h2>Before Start Engine</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Beacon lights ON</span></label>
-    <label><input type="checkbox" /><span>Seat belts ON</span></label>
-    <label><input type="checkbox" /><span>Taxi lights OFF</span></label>
-    <label><input type="checkbox" /><span>Transponder SET to standby or ALT</span></label>
-    <label><input type="checkbox" /><span>ATC Clearance obtained and read back</span></label>
-    <label><input type="checkbox" /><span>Doors & windows CLOSED</span></label>
-    <label><input type="checkbox" /><span>Packs OFF (if required by checklist or clearance)</span></label>
-  </div>
+<div class="section">
+<h2>5. Full FMC Initialization</h2>
+<ul>
+<li><label><input type="checkbox"> FMC INIT REF / POS INIT ...... Set airport, gate, coordinates</label></li>
+<li><label><input type="checkbox"> IDENT ................................ Verify aircraft, database</label></li>
+<li><label><input type="checkbox"> ROUTE .............................. ORIGIN, DEST, FLT NO, Rwy</label></li>
+<li><label><input type="checkbox"> DEPARTURE / ARRIVAL .......... SID/STAR, Runway</label></li>
+<li><label><input type="checkbox"> Route Legs ........................ CHECK/EDIT</label></li>
+<li><label><input type="checkbox"> PERF INIT ........................ CRZ ALT, ZFW, FUEL, Cost Index, Reserve</label></li>
+<li><label><input type="checkbox"> N1 LIMITS ......................... ASSIGN (CLB/CLB-1/TO)</label></li>
+<li><label><input type="checkbox"> TAKE OFF INIT ..................... V-Speeds (V1, VR, V2), Flaps, CG</label></li>
+<li><label><input type="checkbox"> EXEC ................................ Execute all steps</label></li>
+<li><label><input type="checkbox"> VNAV/LNAV ........................ ARM (on MCP)</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Engine Start -->
-<div class="checklist-section" id="engine-start">
-  <h2>Engine Start (APU Bleed)</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Start switch - select engine 2 (or 1 depending on airline SOP)</span></label>
-    <label><input type="checkbox" /><span>Confirm N2 rotation during start sequence</span></label>
-    <label><input type="checkbox" /><span>Monitor engine parameters (EGT, Oil Pressure, N1, N2)</span></label>
-    <label><input type="checkbox" /><span>Starter switch OFF at approx 55% N2</span></label>
-    <label><input type="checkbox" /><span>Repeat for engine 1 (or 2)</span></label>
-    <label><input type="checkbox" /><span>Generators ON after engines stabilized</span></label>
-    <label><input type="checkbox" /><span>APU BLEED and MASTER OFF (if required)</span></label>
-  </div>
+<div class="section">
+<h2>6. ATC & Clearance</h2>
+<ul>
+<li><label><input type="checkbox"> ATIS/Weather Info ............... RECEIVED/NOTED</label></li>
+<li><label><input type="checkbox"> COMM1/2/3 (set ATC freq) ......... READY</label></li>
+<li><label><input type="checkbox"> Squawk / Transponder ............ SET AS ASSIGNED</label></li>
+<li><label><input type="checkbox"> Clearance Request ................. COPY DOWN CLEARANCE</label></li>
+<li><label><input type="checkbox"> IFR clearance readback ............ ACKNOWLEDGED</label></li>
+<li><label><input type="checkbox"> Pushback/taxi/dep freq ........ SET AND READY</label></li>
+</ul>
 </div>
 
-<!-- SECTION: After Start -->
-<div class="checklist-section" id="after-start">
-  <h2>After Start</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Set pack flow to AUTO</span></label>
-    <label><input type="checkbox" /><span>Set hydraulic pumps ON as required</span></label>
-    <label><input type="checkbox" /><span>Flight instruments set and checked</span></label>
-    <label><input type="checkbox" /><span>FMC vertical and lateral pages verified</span></label>
-    <label><input type="checkbox" /><span>Confirm spoilers AUTO</span></label>
-    <label><input type="checkbox" /><span>Flaps set for takeoff</span></label>
-    <label><input type="checkbox" /><span>Flight Controls check: full & free movement</span></label>
-    <label><input type="checkbox" /><span>Line up lights and taxi lights set as required</span></label>
-  </div>
+<div class="section">
+<h2>7. Before Pushback & Start</h2>
+<ul>
+<li><label><input type="checkbox"> Seat Belts & No Smoking ........ ON</label></li>
+<li><label><input type="checkbox"> Fuel Panel ................................. PUMPS ON (as needed)</label></li>
+<li><label><input type="checkbox"> Hydraulic Panel ........................... ON (A/B if needed)</label></li>
+<li><label><input type="checkbox"> Doors Status/Beacon Light .............. CHECKED/ON</label></li>
+<li><label><input type="checkbox"> Packs & Bleed Air ........................ OFF (if engine start)</label></li>
+<li><label><input type="checkbox"> Pushback/Tug Clearance ................. OBTAINED</label></li>
+<li><label><input type="checkbox"> Parking Brake ............................... OFF when cleared</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Taxi -->
-<div class="checklist-section" id="taxi">
-  <h2>Taxi</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>ATC clearance read back</span></label>
-    <label><input type="checkbox" /><span>Taxi route briefed and confirmed</span></label>
-    <label><input type="checkbox" /><span>Radios set for ground and tower frequencies</span></label>
-    <label><input type="checkbox" /><span>Flight deck doors closed and locked</span></label>
-    <label><input type="checkbox" /><span>Autobrake OFF or RTO (as required)</span></label>
-  </div>
+<div class="section">
+<h2>8. Engine Start</h2>
+<ul>
+<li><label><input type="checkbox"> Engine Mode Selector .......... GND (Start 2, then 1)</label></li>
+<li><label><input type="checkbox"> Monitor N2/Rise ............ > 24%</label></li>
+<li><label><input type="checkbox"> Fuel Levers ..................... IDLE (at correct N2)</label></li>
+<li><label><input type="checkbox"> EGT/N1/N2/Pressure ............ MONITOR</label></li>
+<li><label><input type="checkbox"> Repeat for Both Engines</label></li>
+<li><label><input type="checkbox"> Engine Start Switch ............ OFF (after start)</label></li>
+<li><label><input type="checkbox"> Generator Switches ............. ON</label></li>
+<li><label><input type="checkbox"> Probe Heat .......................... ON</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Before Takeoff -->
-<div class="checklist-section" id="before-takeoff">
-  <h2>Before Takeoff</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Flaps set for takeoff (usually flaps 5 or as required)</span></label>
-    <label><input type="checkbox" /><span>Takeoff data set and confirmed on PFD (V-speeds & N1 TO)</span></label>
-    <label><input type="checkbox" /><span>Autobrake set</span></label>
-    <label><input type="checkbox" /><span>Transponder set to TA/RA or ALT as per airline SOP</span></label>
-    <label><input type="checkbox" /><span>Flight directors ON</span></label>
-    <label><input type="checkbox" /><span>Altitude selector set to initial departure altitude</span></label>
-    <label><input type="checkbox" /><span>Passengers briefed and seatbelt signs ON</span></label>
-    <label><input type="checkbox" /><span>ATC clearance read back and squawk verified</span></label>
-  </div>
+<div class="section">
+<h2>9. After Start / Before Taxi</h2>
+<ul>
+<li><label><input type="checkbox"> APU Bleed Air ........................... OFF</label></li>
+<li><label><input type="checkbox"> Packs / Air Conditioning .......... AUTO/ON</label></li>
+<li><label><input type="checkbox"> Flaps ................................. SET for Departure</label></li>
+<li><label><input type="checkbox"> Flight Controls ........................ CHECKED/SET</label></li>
+<li><label><input type="checkbox"> Autobrake ..................................... RTO</label></li>
+<li><label><input type="checkbox"> Taxi Clearance ................................ OBTAIN</label></li>
+<li><label><input type="checkbox"> Taxi Light ..................................... ON</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Takeoff -->
-<div class="checklist-section" id="takeoff">
-  <h2>Takeoff</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Runway confirmed and cleared by ATC</span></label>
-    <label><input type="checkbox" /><span>Thrust set to FLEX or TOGA as required</span></label>
-    <label><input type="checkbox" /><span>Rotate at Vr</span></label>
-    <label><input type="checkbox" /><span>Positive climb confirmed, gear UP</span></label>
-    <label><input type="checkbox" /><span>Autopilot ON after SRS or 400 feet AGL</span></label>
-  </div>
+<div class="section">
+<h2>10. Taxi</h2>
+<ul>
+<li><label><input type="checkbox"> Brakes/Steering ........................ CHECKED</label></li>
+<li><label><input type="checkbox"> Flight Instruments .......... CHECKED, ALIGNED</label></li>
+<li><label><input type="checkbox"> MCP Altitude/Heading ............ VERIFIED</label></li>
+<li><label><input type="checkbox"> Takeoff Briefing ..................... COMPLETE</label></li>
+<li><label><input type="checkbox"> Cabin/PA ............................... Complete</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Climb -->
-<div class="checklist-section" id="climb">
-  <h2>Climb</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Climb thrust set</span></label>
-    <label><input type="checkbox" /><span>Landing lights OFF above 10,000 ft</span></label>
-    <label><input type="checkbox" /><span>Fuel pumps OFF as required, crossfeed off</span></label>
-    <label><input type="checkbox" /><span>Bleed air set for climb</span></label>
-    <label><input type="checkbox" /><span>Monitor engine parameters and systems</span></label>
-  </div>
+<div class="section">
+<h2>11. Before Takeoff</h2>
+<ul>
+<li><label><input type="checkbox"> Flaps ......................................... SET</label></li>
+<li><label><input type="checkbox"> Stabilizer Trim .......................... SET (per FMC)</label></li>
+<li><label><input type="checkbox"> Flight Controls .......................... CHECKED</label></li>
+<li><label><input type="checkbox"> Transponder ............................ TA/RA</label></li>
+<li><label><input type="checkbox"> Landing Lights .......................... ON</label></li>
+<li><label><input type="checkbox"> Strobe Lights ............................. ON</label></li>
+<li><label><input type="checkbox"> Runway/Takeoff clearance .......... OBTAINED</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Cruise -->
-<div class="checklist-section" id="cruise">
-  <h2>Cruise</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Set cruise altitude and verify in MCP</span></label>
-    <label><input type="checkbox" /><span>Check FMC fuel and performance data</span></label>
-    <label><input type="checkbox" /><span>Activate anti-ice systems as needed</span></label>
-    <label><input type="checkbox" /><span>Monitor ATC instructions, set frequencies</span></label>
-    <label><input type="checkbox" /><span>Check hydraulic systems and fuel balancing</span></label>
-  </div>
+<div class="section">
+<h2>12. Takeoff & Climb</h2>
+<ul>
+<li><label><input type="checkbox"> LNAV/VNAV/Autopilot (CMD) .......... ENGAGE as needed</label></li>
+<li><label><input type="checkbox"> Call "80 knots", "V1", "Rotate" ........... AS SPEEDS REACHED</label></li>
+<li><label><input type="checkbox"> Positive Rate ............. Gear Up</label></li>
+<li><label><input type="checkbox"> Flaps .................... UP (on schedule)</label></li>
+<li><label><input type="checkbox"> After Takeoff Checklist ............ COMPLETE</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Descent & Approach -->
-<div class="checklist-section" id="descent-approach">
-  <h2>Descent & Approach</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Obtain ATIS and approach clearance</span></label>
-    <label><input type="checkbox" /><span>Set FMC arrival and approach procedure</span></label>
-    <label><input type="checkbox" /><span>Set altimeter QNH</span></label>
-    <label><input type="checkbox" /><span>Turn on landing lights and seatbelt signs</span></label>
-    <label><input type="checkbox" /><span>Set speed and target altitudes in MCP</span></label>
-    <label><input type="checkbox" /><span>Flaps as required for approach</span></label>
-    <label><input type="checkbox" /><span>Confirm approach mode armed on MCP</span></label>
-  </div>
+<div class="section">
+<h2>13. Cruise</h2>
+<ul>
+<li><label><input type="checkbox"> Fuel Monitoring ............................. CHECK</label></li>
+<li><label><input type="checkbox"> Radios / ATC / SELCAL ............ MONITOR</label></li>
+<li><label><input type="checkbox"> Cabin Status ................................. CHECK</label></li>
+<li><label><input type="checkbox"> FMC Progress ............................. MONITOR</label></li>
+<li><label><input type="checkbox"> Seatbelt Signs ............................... AS REQUIRED</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Landing -->
-<div class="checklist-section" id="landing">
-  <h2>Landing</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Landing gear DOWN and three green lights</span></label>
-    <label><input type="checkbox" /><span>Flaps set for landing (usually flaps 30 or 40)</span></label>
-    <label><input type="checkbox" /><span>Speed brakes armed</span></label>
-    <label><input type="checkbox" /><span>Landing checklist complete</span></label>
-    <label><input type="checkbox" /><span>Autopilot disconnected before landing (as required)</span></label>
-  </div>
+<div class="section">
+<h2>14. Descent & Arrival Brief</h2>
+<ul>
+<li><label><input type="checkbox"> ATIS / Weather / ARRIVAL ........... NOTED</label></li>
+<li><label><input type="checkbox"> FMC Arrival / Approach .......... PROGRAMMED</label></li>
+<li><label><input type="checkbox"> Approach Briefing ......................... COMPLETE</label></li>
+<li><label><input type="checkbox"> Altimeters ................................. SET</label></li>
+<li><label><input type="checkbox"> Seatbelts ................................. ON</label></li>
+<li><label><input type="checkbox"> Approach FREQUENCIES ............. SET</label></li>
+<li><label><input type="checkbox"> Minimums (MDA/DA) ................. SET</label></li>
+</ul>
 </div>
 
-<!-- SECTION: After Landing -->
-<div class="checklist-section" id="after-landing">
-  <h2>After Landing</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Flaps UP</span></label>
-    <label><input type="checkbox" /><span>Speed brakes disarmed</span></label>
-    <label><input type="checkbox" /><span>Landing lights OFF</span></label>
-    <label><input type="checkbox" /><span>Taxi lights ON</span></label>
-    <label><input type="checkbox" /><span>Transponder SET to standby</span></label>
-  </div>
+<div class="section">
+<h2>15. Approach</h2>
+<ul>
+<li><label><input type="checkbox"> Landing Data ....................... REVIEWED</label></li>
+<li><label><input type="checkbox"> Flaps ................... EXTEND as required</label></li>
+<li><label><input type="checkbox"> Gear Down ................... ON GS or per SOP</label></li>
+<li><label><input type="checkbox"> Speedbrake ARM .................. ARMED</label></li>
+<li><label><input type="checkbox"> Landing Lights / Taxi ............ ON</label></li>
+<li><label><input type="checkbox"> Cabin Crew ............................. NOTIFY</label></li>
+<li><label><input type="checkbox"> Approach Mode / Autopilot ....... ENGAGE as needed</label></li>
+</ul>
 </div>
 
-<!-- SECTION: Shutdown -->
-<div class="checklist-section" id="shutdown">
-  <h2>Shutdown</h2>
-  <div class="inner-list">
-    <label><input type="checkbox" /><span>Park brake SET</span></label>
-    <label><input type="checkbox" /><span>Engines shut down via thrust lever cutoff</span></label>
-    <label><input type="checkbox" /><span>Generators switched OFF</span></label>
-    <label><input type="checkbox" /><span>APU master ON if required to maintain power</span></label>
-    <label><input type="checkbox" /><span>Exterior lights OFF (except nav and beacon if needed)</span></label>
-    <label><input type="checkbox" /><span>Set flight deck electrical power as per SOP</span></label>
-    <label><input type="checkbox" /><span>Parking brake OFF if taxiing, or leave ON if parking</span></label>
-  </div>
+<div class="section">
+<h2>16. Landing</h2>
+<ul>
+<li><label><input type="checkbox"> ILS / VOR or Visual ............... MONITOR</label></li>
+<li><label><input type="checkbox"> Flare & Landing ........... EXECUTE</label></li>
+<li><label><input type="checkbox"> Reverse Thrust ............ DEPLOY as needed</label></li>
+<li><label><input type="checkbox"> Autobrakes ............... MONITOR</label></li>
+<li><label><input type="checkbox"> Manual Braking ............ APPLY as required</label></li>
+<li><label><input type="checkbox"> Speedbrake ............... UP (arm or deploy)</label></li>
+<li><label><input type="checkbox"> After Landing ............ Checklist call</label></li>
+</ul>
 </div>
 
+<div class="section">
+<h2>17. After Landing / Taxi In</h2>
+<ul>
+<li><label><input type="checkbox"> Flaps ..................... UP</label></li>
+<li><label><input type="checkbox"> Speedbrake ............... DOWN</label></li>
+<li><label><input type="checkbox"> Weather Radar ............ OFF/STDBY</label></li>
+<li><label><input type="checkbox"> Transponder .............. STDBY</label></li>
+<li><label><input type="checkbox"> Strobes .................. OFF</label></li>
+<li><label><input type="checkbox"> Taxi Light ............... ON, Landing OFF</label></li>
+<li><label><input type="checkbox"> APU ...................... START (if not running)</label></li>
+</ul>
+</div>
+
+<div class="section">
+<h2>18. Parking & Shutdown</h2>
+<ul>
+<li><label><input type="checkbox"> Parking Brake ............ SET</label></li>
+<li><label><input type="checkbox"> Taxi Light ............... OFF</label></li>
+<li><label><input type="checkbox"> Seatbelt Sign ............ OFF</label></li>
+<li><label><input type="checkbox"> Fuel Pumps ............... OFF (except APU)</label></li>
+<li><label><input type="checkbox"> Engine Levers ............ CUTOFF</label></li>
+<li><label><input type="checkbox"> Anti-Collision Light ..... OFF</label></li>
+<li><label><input type="checkbox"> Ground Power ............. CONNECT/ON (if available)</label></li>
+<li><label><input type="checkbox"> APU Bleed Air ............ ON (if needed)</label></li>
+<li><label><input type="checkbox"> IRS ............................. OFF</label></li>
+</ul>
+</div>
+
+<div class="section">
+<h2>19. Secure / Cold & Dark</h2>
+<ul>
+<li><label><input type="checkbox"> Galley Power ............ OFF</label></li>
+<li><label><input type="checkbox"> Emergency Exit Lights ... OFF</label></li>
+<li><label><input type="checkbox"> Electrical Power .......... OFF (when allowed)</label></li>
+<li><label><input type="checkbox"> APU ......... OFF (when not required)</label></li>
+<li><label><input type="checkbox"> Battery ........ OFF (when exiting cockpit)</label></li>
+</ul>
+</div>
+
+<br>
+<footer>
+  <small>Boeing 737-800 APU Only - Pro Checklist &copy; 2024. Simulator Use: Save/Copy as .html</small>
+</footer>
 </body>
 </html>
